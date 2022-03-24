@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'photos/destroy'
+  get 'photos/show'
   resources :microposts
   devise_for :users, controllers: {
     sessions: 'users/sessions'
