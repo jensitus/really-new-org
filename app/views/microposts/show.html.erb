@@ -8,3 +8,20 @@
 
   <%= button_to "Destroy this micropost", @micropost, method: :delete %>
 </div>
+
+<div>
+  <%= render @micropost.comments %>
+</div>
+
+<div>
+  <%= form_with(model: [@micropost, @micropost.comments.build]) do |f| %>
+    <div class="form-group">
+      <%= f.label 'New comment' %>
+      <%= f.text_area :body, class: 'form-control' %>
+    </div>
+    <div>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+    </div>
+    <%= f.submit 'Submit', class: 'btn btn-primary' %>
+  <% end %>
+</div>

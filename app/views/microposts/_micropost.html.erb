@@ -5,11 +5,9 @@
   </div>
 
   <div>
-    <% if micropost.photos %>
       <% micropost.photos.each do |photo| %>
         <%= image_tag photo.picture_url, style: 'width: 50%' %>
       <% end %>
-    <% end %>
   </div>
 
   <div>
