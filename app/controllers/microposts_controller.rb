@@ -58,13 +58,19 @@ class MicropostsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_micropost
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_micropost
+    begin
       @micropost = Micropost.find(params[:id])
+    rescue => e
+      redirect_to :root
     end
 
-    # Only allow a list of trusted parameters through.
-    def micropost_params
-      params.require(:micropost).permit(:content, :user_id,  :photo) # photo_attributes: [:id, :micropost_id, :picture])
-    end
+  end
+
+  # Only allow a list of trusted parameters through.
+  def micropost_params
+    params.require(:micropost).permit(:content, :user_id, :photo) # photo_attributes: [:id, :micropost_id, :picture])
+  end
 end

@@ -1,0 +1,23 @@
+<div id="<%= dom_id photo_gallery %>">
+  <div>
+    <strong>Title:</strong>
+    <%= photo_gallery.title %>
+  </div>
+
+  <div>
+    <strong>Description:</strong>
+    <%= photo_gallery.description %>
+  </div>
+
+  <div>
+    <% photo_gallery.photos.each do |photo| %>
+    <%= image_tag photo.picture_url, style: 'width:50%' %>
+    <% end %>
+  </div>
+
+  <div>
+    <strong>Last updated by:</strong>
+    <%= photo_gallery.last_updated_by_id %>
+  </div>
+
+</div>
