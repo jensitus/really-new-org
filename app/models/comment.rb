@@ -1,3 +1,4 @@
 class Comment < ApplicationRecord
-  belongs_to :micropost
+  has_one :micropost
+  has_one :photo
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :photo_galleries
 
   get 'photos/destroy'
   get 'photos/show'

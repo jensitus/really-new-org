@@ -5,5 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :trackable, :lockable
 
   has_many :microposts
+  has_many :photo_gallery_users
+  has_many :photo_galleries, through: :photo_gallery_users
 
 end

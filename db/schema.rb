@@ -10,31 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_24_203701) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_25_101737) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "micropost_id"
+    t.bigint "micropost_id"
   end
 
   create_table "microposts", force: :cascade do |t|
     t.text "content"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "photos", force: :cascade do |t|
-    t.string "picture"
-    t.integer "user_id"
-    t.integer "micropost_id"
+  create_table "photo_galleries", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "last_updated_by_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "photo_gallery_users", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "photo_gallery_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["photo_gallery_id"], name: "index_photo_gallery_users_on_photo_gallery_id"
+    t.index ["user_id"], name: "index_photo_gallery_users_on_user_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "picture"
+    t.bigint "user_id"
+    t.bigint "micropost_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "photo_gallery_id"
   end
 
   create_table "users", force: :cascade do |t|

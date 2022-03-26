@@ -4,4 +4,11 @@ class PhotosController < ApplicationController
 
   def show
   end
+
+  private
+
+  def set_photo
+
+  end
+
 end

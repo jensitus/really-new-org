@@ -58,6 +58,10 @@ development:
 test:
   <<: *default
   database: really_new_org_test
+  host: localhost
+  port: 5432
+  username: neworg
+  password: neworg
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

@@ -16,8 +16,12 @@
 <div>
   <%= form_with(model: [@micropost, @micropost.comments.build]) do |f| %>
     <div class="form-group">
-      <%= f.label 'New comment' %>
-      <%= f.text_area :body, class: 'form-control' %>
+      <div>
+        <%= f.label 'New comment' %>
+      </div>
+      <div>
+        <%= f.text_area :body, class: 'form-control' %>
+      </div>
     </div>
     <div>
       <%= f.hidden_field :user_id, value: current_user.id %>
