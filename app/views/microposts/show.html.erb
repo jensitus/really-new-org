@@ -11,6 +11,7 @@
 
 <div>
   <%= render @micropost.comments %>
+  <%= @micropost.comments.last %>
 </div>
 
 <% if current_user %>
