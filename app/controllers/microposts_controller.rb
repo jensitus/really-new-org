@@ -5,7 +5,7 @@ class MicropostsController < ApplicationController
 
   # GET /microposts or /microposts.json
   def index
-    @microposts = Micropost.all
+    @microposts = Micropost.order(created_at: :desc)
   end
 
   # GET /microposts/1 or /microposts/1.json
