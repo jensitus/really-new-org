@@ -1,5 +1,7 @@
 class MicropostsController < ApplicationController
-  before_action :set_micropost, only: %i[ show edit update destroy ]
+  before_action :set_micropost, only: %i[ show edit update destroy check_user]
+  before_action :authenticate_user!, only: [:edit, :update, :create, :destroy]
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   # GET /microposts or /microposts.json
   def index
@@ -57,6 +59,13 @@ class MicropostsController < ApplicationController
     end
   end
 
+  def check_user
+    if current_user != @micropost.user
+      redirect_to :root
+      flash[:notice] = "Finger weg!"
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -73,4 +82,5 @@ class MicropostsController < ApplicationController
   def micropost_params
     params.require(:micropost).permit(:content, :user_id, :photo) # photo_attributes: [:id, :micropost_id, :picture])
   end
+
 end
