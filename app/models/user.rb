@@ -12,5 +12,6 @@ class User < ApplicationRecord
   has_many :microposts
   has_many :photo_gallery_users
   has_many :photo_galleries, through: :photo_gallery_users
+  has_many :users
 
 end

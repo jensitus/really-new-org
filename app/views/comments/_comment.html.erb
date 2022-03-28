@@ -1,12 +1,13 @@
 <div id="<%= dom_id comment %>">
   <p>
-    <strong>Body:</strong>
     <%= comment.body %>
   </p>
 
   <p>
-    <strong>User:</strong>
-    <%= comment.user_id %>
+    <small>
+      <%= comment.user.name %> |
+      <%= (comment.created_at).strftime('%d.%m.%y %H:%M') %>
+    </small>
   </p>
 
 </div>
