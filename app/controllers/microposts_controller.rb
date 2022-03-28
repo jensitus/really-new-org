@@ -5,7 +5,16 @@ class MicropostsController < ApplicationController
 
   # GET /microposts or /microposts.json
   def index
-    @microposts = Micropost.order(created_at: :desc)
+    @microposts = Micropost.paginate(page: params[:page], per_page: 10).order('updated_at desc')
+
+    # # # this is for futue pagination: # # #
+    # @count = Micropost.all.count
+    # if params[:limit].nil? && params[:offset].nil?
+    #   @microposts = Micropost.paginated(5, 0);
+    # else
+    #   @microposts = Micropost.paginated(params[:limit], params[:offset])
+    # end
+    # # # # # # # #
   end
 
   # GET /microposts/1 or /microposts/1.json

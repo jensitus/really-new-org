@@ -1,22 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
-<% if current_user %>
-  <%= current_user.name %>
-  <%= link_to "logout", destroy_user_session_path, :method => :delete %>
-<% else %>
-  <%= link_to 'login', new_user_session_path %>
-<% end %>
-
-
-<h1>Microposts</h1>
-
 <div id="microposts">
   <% @microposts.each do |micropost| %>
     <%= render micropost %>
     <p>
-      <%= link_to "Show this micropost", micropost %>
+      <small><%= link_to "link", micropost %></small>
     </p>
+    <hr>
   <% end %>
 </div>
 
 <%= link_to "New micropost", new_micropost_path %>
+
+<div class="apple_pagination">
+  <div class="page-info">
+    <%#= page_entries_info @micropost %>
+  </div>
+  <%= will_paginate @microposts %>
+</div>
