@@ -1,18 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
-<div id="microposts">
-  <% @microposts.each do |micropost| %>
-    <%= render micropost %>
-    <p>
-      <small><%= link_to "link", micropost %></small>
-    </p>
-    <hr>
-  <% end %>
+<div class="row">
+  <div class="col-md-5">
+    <div id="microposts">
+      <% @microposts.each do |micropost| %>
+        <%= render micropost %>
+        <p>
+          <small><%= link_to "link", micropost %></small>
+        </p>
+        <hr>
+      <% end %>
+    </div>
+    <%= link_to "new org", new_micropost_path %>
+  </div>
 </div>
 
-<%= link_to "New micropost", new_micropost_path %>
-
-<div class="apple_pagination">
+<div class="apple_pagination mt-3">
   <div class="page-info">
     <%#= page_entries_info @micropost %>
   </div>

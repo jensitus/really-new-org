@@ -11,13 +11,9 @@
 </head>
 
 <body>
-<%= render 'nav' %>
 <div class="container">
-  <div class="row">
-    <div class="col-md-5">
-      <%= yield %>
-    </div>
-  </div>
+  <%= render 'shared/nav' %>
+  <%= yield %>
 </div>
 <div class="mt-5"></div>
 </body>
