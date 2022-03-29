@@ -10,7 +10,11 @@
   </div>
 
   <div class="mt-4">
-    <small><%= micropost.user.name %> | <%= (micropost.updated_at).strftime('%d.%m.%y %H:%M') %></small>
+    <small>
+      <%= micropost.user.name %> |
+      <%= (micropost.updated_at).strftime('%d.%m.%y %H:%M') %> |
+      <%= link_to pluralize(micropost.comments.count, 'comment'), micropost_path(id: micropost.id) %>
+    </small>
   </div>
 
 </div>

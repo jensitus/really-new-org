@@ -1,17 +1,16 @@
 <p style="color: green"><%= notice %></p>
-
+<div class="mb-5">
+  <%= link_to "new org", new_micropost_path %>
+</div>
 <div class="row">
   <div class="col-md-5">
     <div id="microposts">
       <% @microposts.each do |micropost| %>
         <%= render micropost %>
-        <p>
-          <small><%= link_to "link", micropost %></small>
-        </p>
         <hr>
       <% end %>
     </div>
-    <%= link_to "new org", new_micropost_path %>
+
   </div>
 </div>
 
