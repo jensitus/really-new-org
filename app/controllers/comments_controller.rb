@@ -26,6 +26,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        CommentMailer.with(user: @micropost.user, body: @comment.body).new_comment.deliver_later
         format.html { redirect_to @micropost, notice: "Comment was successfully created." }
         format.json { render :show, status: :created, location: @comment }
       else
