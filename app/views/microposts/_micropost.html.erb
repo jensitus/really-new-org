@@ -5,7 +5,7 @@
 
   <div>
       <% micropost.photos.each do |photo| %>
-        <%= image_tag photo.picture_url, style: 'width: 90%' %>
+        <%= image_tag photo.picture_url, style: 'width: 90%' unless photo.picture_url.nil? %>
       <% end %>
   </div>
 
