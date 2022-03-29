@@ -48,7 +48,12 @@ class MicropostsController < ApplicationController
   # PATCH/PUT /microposts/1 or /microposts/1.json
   def update
     respond_to do |format|
-      if @micropost.update(micropost_params)
+      if @micropost.update(content: micropost_params[:content])
+        if micropost_params[:photo]
+          @micropost.photos.each do |photo|
+            photo.update picture: micropost_params[:photo]
+          end
+        end
         format.html { redirect_to micropost_url(@micropost), notice: "Micropost was successfully updated." }
         format.json { render :show, status: :ok, location: @micropost }
       else
