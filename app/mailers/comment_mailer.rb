@@ -9,9 +9,6 @@ class CommentMailer < ApplicationMailer
     @user = params[:user]
     @body = params[:body]
     @url  = micropost_url params[:id]
-    puts '+++++++++++++++'
-    puts params.inspect
-    puts '+++++++++++++++'
     @greeting = "Da nagel mich doch einer ans Kreuz ."
 
     mail to: @user.email
