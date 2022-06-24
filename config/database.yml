@@ -85,6 +85,6 @@ test:
 #
 production:
   <<: *default
-  database: really_new_org_production
-  username: really_new_org
+  database: urorg
+  username: urorg
   password: <%= ENV["REALLY_NEW_ORG_DATABASE_PASSWORD"] %>
