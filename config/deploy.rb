@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.17.0"
 
-set :application, "really new org"
+set :application, "really_new_org"
 set :repo_url, "git@github.com:jensitus/really-new-org.git"
 
 set :user, 'urorg'
