@@ -1,0 +1,21 @@
+<%
+  USER="deploy"
+  PORT=ENV.fetch "PORT"
+  HERE=Dir.getwd
+%>
+[Unit]
+Description=httpd
+Requires=network.target
+
+[Service]
+Type=simple
+User=<%= USER %>
+Group=<%= USER %>
+WorkingDirectory=<%= HERE %>
+ExecStart=/bin/bash -lc 'scripts/rails s --port <%= PORT %>'
+TimeoutSec=30
+RestartSec=15s
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

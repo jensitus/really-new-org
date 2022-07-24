@@ -1,0 +1,18 @@
+<%
+  FQDN=`hostname --fqdn`.chomp
+  PORT=ENV.fetch "PORT"
+  HERE=Dir.getwd
+%>
+<%= FQDN %> {
+  log {
+  	output stdout
+  }
+  
+  encode zstd gzip
+
+  reverse_proxy localhost:<%= PORT %> {
+    header_up X-Forwarded-Proto {scheme}
+    header_up X-Forwarded-For {remote}
+    header_up X-Real-IP {remote}
+  }
+}
