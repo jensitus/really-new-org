@@ -11,19 +11,19 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :content, style: "display: block", class: 'form-control' %>
-    <%= form.text_area :content %>
+  <div class="form-group">
+    <%= form.label :content, style: "display: block", class: 'form-label' %>
+    <%= form.text_area :content, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :photo, style: "display: block" %>
+  <div class="form-group">
+    <%= form.label :photo, style: "display: block", class: 'form-label' %>
     <%= form.file_field :photo %>
   </div>
 
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.number_field :user_id %>
+    <%#= form.label :user_id, style: "display: block" %>
+    <%#= form.number_field :user_id %>
   </div>
 
   <div>

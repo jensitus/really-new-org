@@ -59,14 +59,25 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 append :linked_files, "config/master.key"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "public/uploads"
 
-# namespace :puma do
-#   Rake::Task[:restart].clear_actions
-#
-#   desc "Overwritten puma:restart task"
+namespace :puma do
+  # Rake::Task[:restart].clear_actions
+
+  desc "Overwritten puma:restart task"
+  task :restart do
+    puts "Overwriting puma:restart to ensure that puma is running. Effectively, we are just starting Puma."
+    puts "A solution to this should be found."
+    invoke 'puma:restart'
+    # invoke 'puma:start'
+  end
+end
+
+# namespace :deploy do
+#   desc 'Restart application'
 #   task :restart do
-#     puts "Overwriting puma:restart to ensure that puma is running. Effectively, we are just starting Puma."
-#     puts "A solution to this should be found."
-#     invoke 'puma:stop'
-#     invoke 'puma:start'
+#     on roles(:app) do
+#       execute "#{fetch(:rbenv_prefix)} pumactl -P ~/app/current/tmp/pids/puma.pid phased-restart"
+#     end
 #   end
 # end
+
+after 'deploy:publishing', 'puma:restart'

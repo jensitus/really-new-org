@@ -4,7 +4,10 @@
 
 <div id="photo_galleries">
   <% @photo_galleries.each do |photo_gallery| %>
-    <%= render photo_gallery %>
+    <%#= render photo_gallery %>
+    <div>
+      <b><%= photo_gallery.title %></b>
+    </div>
     <p>
       <%= link_to "Show this photo gallery", photo_gallery %>
     </p>
