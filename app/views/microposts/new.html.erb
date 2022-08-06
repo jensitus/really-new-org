@@ -1,5 +1,12 @@
 
-<h1>New micropost</h1>
+<nav>
+  <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+    <%= button_to 'posting', new_micropost_path, class: 'nav-link active', method: :get %>
+    <%= button_to 'gallery', new_photo_gallery_path, class: 'nav-link', method: :get %>
+  </div>
+</nav>
+
+<h4>New micropost</h4>
 
 <%= render "form", micropost: @micropost %>
 

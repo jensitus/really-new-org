@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :photo_galleries
 
   get 'photos/destroy'
-  get 'photos/show'
+  get 'photos/show/:id', to: 'photos#show', as: 'photo'
   resources :microposts do
     resources :comments
   end

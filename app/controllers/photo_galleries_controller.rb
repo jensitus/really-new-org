@@ -38,7 +38,7 @@ class PhotoGalleriesController < ApplicationController
   # PATCH/PUT /photo_galleries/1 or /photo_galleries/1.json
   def update
     respond_to do |format|
-      if @photo_gallery.update(photo_gallery_params)
+      if @photo_gallery.photos.create!(picture: photo_gallery_params[:photo], photo_gallery_id: @photo_gallery.id, user_id: current_user.id)
         format.html { redirect_to photo_gallery_url(@photo_gallery), notice: "Photo gallery was successfully updated." }
         format.json { render :show, status: :ok, location: @photo_gallery }
       else

@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="form-group mt-2">
+    <%= form.label :title, style: "display: block", class: 'form-label' %>
+    <%= form.text_field :title, class: 'form-control' %>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+  <div class="form-group mt-2">
+    <%= form.label :description, style: "display: block", class: 'form-label' %>
+    <%= form.text_area :description, class: 'form-control' %>
   </div>
 
-  <div>
+  <div class="form-group mt-2">
     <%= form.label :photo, style: "display: block" %>
     <%= form.file_field :photo %>
   </div>
 
   <div>
-    <%= form.label :last_updated_by_id, style: "display: block" %>
-    <%= form.number_field :last_updated_by_id %>
+    <%#= form.label :last_updated_by_id, style: "display: block" %>
+    <%#= form.number_field :last_updated_by_id %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mt-2">
+    <%= form.submit 'create', class: 'btn btn-sm btn-outline-primary' %>
   </div>
 <% end %>

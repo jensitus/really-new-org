@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  before_action :set_photo
+
   def destroy
   end
 
@@ -8,7 +10,7 @@ class PhotosController < ApplicationController
   private
 
   def set_photo
-
+    @photo = Photo.find(params[:id])
   end
 
 end

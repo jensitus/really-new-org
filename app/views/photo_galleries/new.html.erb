@@ -1,4 +1,11 @@
-<h1>New photo gallery</h1>
+
+<nav>
+  <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+    <%= button_to 'posting', new_micropost_path, class: 'nav-link', method: :get %>
+    <%= button_to 'gallery', new_photo_gallery_path, class: 'nav-link active', method: :get %>
+  </div>
+</nav>
+<h4>New photo gallery</h4>
 
 <%= render "form", photo_gallery: @photo_gallery %>
 
