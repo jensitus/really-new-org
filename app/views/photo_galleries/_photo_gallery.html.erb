@@ -12,9 +12,13 @@
   <div class="row">
 
     <% photo_gallery.photos.each do |photo| %>
-      <div class="col">
-        <%= image_tag photo.picture_url, style: 'width:50%' %>
-        <%= link_to 'show', '/photos/show/' + photo.id.to_s %>
+      <div class="col-md-4">
+        <div>
+          <%= image_tag photo.picture_url, style: 'width:90%' %>
+        </div>
+        <div>
+          <%= link_to 'show', '/photos/show/' + photo.id.to_s %>
+        </div>
       </div>
     <% end %>
 
