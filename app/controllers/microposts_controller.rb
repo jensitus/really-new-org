@@ -1,6 +1,6 @@
 class MicropostsController < ApplicationController
   before_action :set_micropost, only: %i[ show edit update destroy check_user]
-  before_action :authenticate_user!, only: [:edit, :update, :create, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :create, :destroy]
   before_action :check_user, only: [:edit, :update, :destroy]
 
   # GET /microposts or /microposts.json

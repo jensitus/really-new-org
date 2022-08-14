@@ -14,7 +14,9 @@
     <% photo_gallery.photos.each do |photo| %>
       <div class="col-md-4">
         <div>
-          <%= image_tag photo.picture_url, style: 'width:90%' %>
+          <% if !photo.nil? %>
+            <%= image_tag photo.picture_url, style: 'width:90%' %>
+          <% end %>
         </div>
         <div>
           <%= link_to 'show', '/photos/show/' + photo.id.to_s %>

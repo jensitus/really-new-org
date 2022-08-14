@@ -1,11 +1,11 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.17.0"
 
-server '168.119.234.39', port: 22, roles: [:web, :app, :db], primary: true
+server '135.181.199.28', port: 22, roles: [:web, :app, :db], primary: true
 set :application, "really_new_org"
 set :repo_url, "git@github.com:jensitus/really-new-org.git"
 
-set :user, 'urorg'
+set :user, 'deploy'
 set :puma_threads, [4,16]
 set :puma_workers, 0
 
