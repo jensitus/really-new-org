@@ -66,7 +66,7 @@ namespace :puma do
   task :restart do
     puts "Overwriting puma:restart to ensure that puma is running. Effectively, we are just starting Puma."
     puts "A solution to this should be found."
-    invoke!("puma:restart")
+    invoke 'puma:restart'
     # invoke 'puma:start'
   end
 end
