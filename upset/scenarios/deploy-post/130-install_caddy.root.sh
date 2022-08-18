@@ -16,6 +16,7 @@ eval "$(rbenv init -)"
   apt update
   apt install caddy
 
+  ufw allow 22
   ufw allow 80
   ufw allow 443
   ufw --force enable
