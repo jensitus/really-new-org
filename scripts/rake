@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+# This script can be used to run the rails app in the current directory.
+# It makes sure to source the correct rbenv configuration, and also
+# sets RAILS_SERVE_STATIC_FILES, so that rails does serve assets.
+#
+
+# bundler I hate you
+unset RUBYLIB
+unset RUBYOPT
+
+if ! type -p rbenv ; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
+
+. /etc/upset.inc
+
+export DATABASE_URL=postgresql://%2Fvar%2Frun%2Fpostgresql/$DATABASE_NAME
+export RAILS_SERVE_STATIC_FILES=y
+
+# echo "Starting rake $@ in $(pwd)" >&2
+
+bundle exec rake "$@"
