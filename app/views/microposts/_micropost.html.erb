@@ -6,7 +6,7 @@
   <div>
     <% micropost.photos.each do |photo| %>
       <%#= image_tag photo.picture_url, style: 'width: 100%' unless photo.picture_url.nil? %>
-      <% if !photo.picture_url.nil? %>
+      <% if micropost.photos %>
         <div><small>Pictures will be back soon as possible</small></div>
       <% end %>
     <% end %>
