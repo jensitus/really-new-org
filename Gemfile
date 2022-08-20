@@ -54,8 +54,8 @@ gem "bootsnap", require: false
 gem 'will_paginate'
 
 # Use Sass to process CSS
-# gem "sassc-rails"
-
+gem "sassc-rails"
+gem 'bootstrap', '~> 5.2.0'
 # Use Active Storage variants [https://guidescurl -sSL https://get.rvm.io | bash -s stable.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 

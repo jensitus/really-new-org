@@ -2,8 +2,9 @@
 <div class="mb-5">
   <%= link_to "new org", new_micropost_path %>
 </div>
+
 <div class="row">
-  <div class="col-md-5">
+  <div class="col-md-6">
     <div id="microposts">
       <% @microposts.each do |micropost| %>
         <%= render micropost %>
@@ -11,16 +12,14 @@
       <% end %>
     </div>
   </div>
-  <div class="col-md-3"></div>
+  <div class="col-md-2"></div>
   <% if !current_user.nil? %>
     <div class="col-md-4">
       <div class="row mb-2">
         <div class="col">
           <div class="card">
             <div class="card-body">
-              <% if !current_user.nil? %>
-                <b><%= current_user.name %></b>
-              <% end %>
+              <b><%= current_user.name %></b>
             </div>
           </div>
         </div>
