@@ -3,11 +3,18 @@
     <%= simple_format micropost.content %>
   </div>
 
+<!--  <div>
+    puts '* * * * * * *'
+    <%#= micropost.inspect %>
+    <br>
+    puts '* * * * * * *'
+    <br>
+    <%#= micropost.photos.present? %>
+    <br>
+    puts '* * * * * * *'
+  </div>-->
   <div>
-    <% unless micropost.photos.nil? %>
-      puts '* * * * * * *'
-      puts micropost.inspect
-      puts '* * * * * * *'
+    <% unless micropost.photos.present? %>
       <% micropost.photos.each do |photo| %>
         <div class="mt-3 m-1 text-secondary"></div>
         <% if photo.picture_url.nil? %>
