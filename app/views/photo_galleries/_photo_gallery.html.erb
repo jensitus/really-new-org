@@ -14,7 +14,7 @@
     <% photo_gallery.photos.each do |photo| %>
       <div class="col-md-4">
         <div>
-          <% if !photo.nil? %>
+          <% if !photo_gallery.photos.nil? %>
             <%= image_tag photo.picture_url, style: 'width:90%' %>
           <% end %>
         </div>
