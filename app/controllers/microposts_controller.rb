@@ -10,14 +10,14 @@ class MicropostsController < ApplicationController
       @gallery_titles = current_user.photo_galleries.select(:id, :title)
     end
 
-      # # # this is for futue pagination: # # #
-      # @count = Micropost.all.count
-      # if params[:limit].nil? && params[:offset].nil?
-      #   @microposts = Micropost.paginated(5, 0);
-      # else
-      #   @microposts = Micropost.paginated(params[:limit], params[:offset])
-      # end
-      # # # # # # # #
+    # # # this is for futue pagination: # # #
+    # @count = Micropost.all.count
+    # if params[:limit].nil? && params[:offset].nil?
+    #   @microposts = Micropost.paginated(5, 0);
+    # else
+    #   @microposts = Micropost.paginated(params[:limit], params[:offset])
+    # end
+    # # # # # # # #
 
   end
 
@@ -39,7 +39,9 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.build(content: micropost_params[:content])
     respond_to do |format|
       if @micropost.save
-        @micropost.photos.create!(picture: micropost_params[:photo], micropost_id: @micropost.id, user_id: current_user.id)
+        unless micropost_params[:photo].nil?
+          @micropost.photos.create!(picture: micropost_params[:photo], micropost_id: @micropost.id, user_id: current_user.id)
+        end
         format.html { redirect_to micropost_url(@micropost), notice: "Micropost was successfully created." }
         format.json { render :show, status: :created, location: @micropost }
       else
