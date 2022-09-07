@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get 'photos/destroy'
   get 'photos/show/:id', to: 'photos#show', as: 'photo'
-  resources :microposts do
+  resources :microposts, path: 'post' do
     resources :comments
   end
   get '/microposts/:limit/:offset', to: 'microposts#index' , as: 'home'
