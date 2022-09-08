@@ -11,7 +11,7 @@ if Rails.env.production?
       :host => 'fra1.digitaloceanspaces.com',
       :endpoint => 'https://fra1.digitaloceanspaces.com'
     }
-    config.fog_directory = ENV["S3_DO__BUCKET"], # Rails.application.secrets.s3_bucket              # ENV['S3_BUCKET']
+    config.fog_directory = ENV["S3_DO_BUCKET"], # Rails.application.secrets.s3_bucket              # ENV['S3_BUCKET']
     config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" } # optional, defaults to {}
   end
 end
