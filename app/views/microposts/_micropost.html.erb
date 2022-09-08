@@ -8,7 +8,9 @@
     <%#= micropost.inspect %>
     <br>
     <br>
-    <%= micropost.photos.present? %>
+    <% unless micropost.photos.present? %>
+      <%= micropost.photos %>
+    <% end %>
     <br>
 
   </div>
