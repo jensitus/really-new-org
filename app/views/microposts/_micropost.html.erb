@@ -3,16 +3,15 @@
     <%= simple_format micropost.content %>
   </div>
 
-<!--  <div>
+  <div>
     puts '* * * * * * *'
     <%#= micropost.inspect %>
     <br>
-    puts '* * * * * * *'
     <br>
-    <%#= micropost.photos.present? %>
+    <%= micropost.photos.present? %>
     <br>
-    puts '* * * * * * *'
-  </div>-->
+
+  </div>
   <div>
     <% unless micropost.photos.present? %>
       <% micropost.photos.each do |photo| %>
