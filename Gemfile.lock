@@ -132,16 +132,15 @@ GEM
     excon (0.92.4)
     execjs (2.8.1)
     ffi (1.15.5)
+    fog-aws (3.14.0)
+      fog-core (~> 2.1)
+      fog-json (~> 1.1)
+      fog-xml (~> 0.1)
     fog-core (2.3.0)
       builder
       excon (~> 0.71)
       formatador (>= 0.2, < 2.0)
       mime-types
-    fog-digitalocean (0.4.0)
-      fog-core
-      fog-json
-      fog-xml
-      ipaddress (>= 0.5)
     fog-json (1.2.0)
       fog-core
       multi_json (~> 1.10)
@@ -160,7 +159,6 @@ GEM
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.5.11)
-    ipaddress (0.8.3)
     irb (1.4.1)
       reline (>= 0.3.0)
     jbuilder (2.11.5)
@@ -327,7 +325,7 @@ DEPENDENCIES
   carrierwave
   debug
   devise
-  fog-digitalocean
+  fog-aws
   importmap-rails
   jbuilder
   jquery-rails
