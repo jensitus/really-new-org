@@ -79,13 +79,6 @@ class MicropostsController < ApplicationController
     end
   end
 
-  def check_user
-    if current_user != @micropost.user
-      redirect_to :root
-      flash[:notice] = "Finger weg!"
-    end
-  end
-
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -100,6 +93,13 @@ class MicropostsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def micropost_params
     params.require(:micropost).permit(:content, :user_id, :photo) # photo_attributes: [:id, :micropost_id, :picture])
+  end
+
+  def check_user
+    if current_user != @micropost.user
+      redirect_to :root
+      flash[:notice] = "Finger weg!"
+    end
   end
 
 end

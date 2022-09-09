@@ -1,6 +1,7 @@
 class PhotoGalleriesController < ApplicationController
   before_action :set_photo_gallery, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: [:new, :edit, :update, :create, :destroy]
+  before_action :check_user, only: [:edit, :update, :destroy]
 
   # GET /photo_galleries or /photo_galleries.json
   def index
@@ -61,13 +62,22 @@ class PhotoGalleriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_photo_gallery
-      @photo_gallery = PhotoGallery.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def photo_gallery_params
-      params.require(:photo_gallery).permit(:title, :description, :last_updated_by_id, :photo)
+  # Use callbacks to share common setup or constraints between actions.
+  def set_photo_gallery
+    @photo_gallery = PhotoGallery.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def photo_gallery_params
+    params.require(:photo_gallery).permit(:title, :description, :last_updated_by_id, :photo)
+  end
+
+  def check_user
+    unless @photo_gallery.users.include? current_user
+      redirect_to :root
+      flash[:notice] = "Finger weg!"
     end
+  end
+
 end
