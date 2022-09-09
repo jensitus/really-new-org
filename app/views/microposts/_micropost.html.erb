@@ -4,27 +4,8 @@
   </div>
 
   <div>
-    puts '* * * * * * *'
-    <%= micropost.inspect %>
-    <br>
-    <%= micropost.photos.inspect %>
-    <br>
-    <% unless micropost.photos.present? %>
-      <%= micropost.photos.inspect %>
-    <% end %>
-    <br>
-
-  </div>
-  <div>
     <% if micropost.photos.present? %>
       <% micropost.photos.each do |photo| %>
-        <div class="mt-3 m-1 text-secondary"></div>
-        <div>
-          <%= photo.inspect %>
-        </div>
-        <div>
-          <%= photo.picture_url %>
-        </div>
         <% if photo.picture_url.nil? %>
           <small>[Pictures will be back soon as possible]</small>
         <% else %>

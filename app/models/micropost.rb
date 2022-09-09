@@ -1,6 +1,6 @@
 class Micropost < ApplicationRecord
-  has_many :photos
-  has_many :comments
+  has_many :photos, dependent: :destroy
+  has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :photos
   belongs_to :user
 
