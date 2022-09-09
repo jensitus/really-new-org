@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
-  resources :photo_galleries
+  resources :photo_galleries, path: 'galleries'
 
   get 'photos/destroy'
   get 'photos/show/:id', to: 'photos#show', as: 'photo'
