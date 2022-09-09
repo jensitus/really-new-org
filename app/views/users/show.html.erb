@@ -1,2 +1,21 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<p style="color: green"><%= notice %></p>
+
+<h3><%= @user.name %></h3>
+<div class="row mt-3">
+  <div class="col-md-6">
+    <hr>
+    <% @user_posts.each do |post| %>
+      <%= render partial: 'microposts/micropost', locals: { micropost: post } %>
+      <hr>
+    <% end %>
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-4">
+    <%= render partial: 'shared/user_sidebar', locals: { user: @user } %>
+    <%= render partial: 'shared/gallery_sidebar', locals: { galleries: @user.photo_galleries } %>
+  </div>
+</div>
+
+<div class="apple_pagination mt-3">
+  <%= will_paginate @user_posts %>
+</div>

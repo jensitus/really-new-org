@@ -95,7 +95,6 @@ class MicropostsController < ApplicationController
     rescue => e
       redirect_to :root
     end
-
   end
 
   # Only allow a list of trusted parameters through.

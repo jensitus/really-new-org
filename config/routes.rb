@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/index'
-  get 'users/show'
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }
@@ -16,4 +14,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root 'microposts#index'
+  get 'users/index'
+  get ':name', to: 'users#show', as: 'user'
 end
