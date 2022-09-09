@@ -7,6 +7,7 @@
     puts '* * * * * * *'
     <%#= micropost.inspect %>
     <br>
+    <%= micropost.photos.nil? %>
     <br>
     <% unless micropost.photos.present? %>
       <%= micropost.photos.inspect %>
