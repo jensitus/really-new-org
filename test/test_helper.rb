@@ -1,5 +1,6 @@
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
+ActiveRecord.maintain_test_schema = false
 require "rails/test_help"
 
 class ActiveSupport::TestCase

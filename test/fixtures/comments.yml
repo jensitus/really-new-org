@@ -3,6 +3,7 @@
 one:
   body: MyText
   user_id: 1
+  micropost_id: 1
 
 two:
   body: MyText

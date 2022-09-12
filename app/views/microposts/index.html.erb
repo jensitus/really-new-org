@@ -14,8 +14,10 @@
   </div>
   <div class="col-md-2"></div>
   <div class="col-md-4">
-    <%= render partial: 'shared/user_sidebar', locals: {user: current_user} %>
-    <%= render partial: 'shared/gallery_sidebar', locals: {galleries: current_user.photo_galleries} %>
+    <% unless current_user.nil? %>
+      <%= render partial: 'shared/user_sidebar', locals: { user: current_user } %>
+      <%= render partial: 'shared/gallery_sidebar', locals: { galleries: current_user.photo_galleries } %>
+    <% end %>
   </div>
 
 </div>
