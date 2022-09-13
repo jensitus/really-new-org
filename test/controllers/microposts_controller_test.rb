@@ -8,13 +8,6 @@ class MicropostsControllerTest < ActionDispatch::IntegrationTest
     @micropost = microposts(:one)
   end
 
-  # test 'should sign in' do
-  #   get '/users/sign_in'
-  #   sign_in users(:one)
-  #   post user_session_url
-  #   assert_response :success
-  # end
-
   test "should get index" do
     get microposts_url
     assert_response :success

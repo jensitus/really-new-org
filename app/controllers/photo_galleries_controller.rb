@@ -27,10 +27,9 @@ class PhotoGalleriesController < ApplicationController
 
     respond_to do |format|
       if @photo_gallery.save
-        puts photo_gallery_params.inspect
-        # @photo_gallery.photos.create!(picture: photo_gallery_params[:photo], photo_gallery_id: @photo_gallery.id, user_id: current_user.id)
-        # format.html { redirect_to photo_gallery_url(@photo_gallery), notice: "Photo gallery was successfully created." }
-        # format.json { render :show, status: :created, location: @photo_gallery }
+        @photo_gallery.photos.create!(picture: photo_gallery_params[:photo], photo_gallery_id: @photo_gallery.id, user_id: current_user.id)
+        format.html { redirect_to photo_gallery_url(@photo_gallery), notice: "Photo gallery was successfully created." }
+        format.json { render :show, status: :created, location: @photo_gallery }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @photo_gallery.errors, status: :unprocessable_entity }
