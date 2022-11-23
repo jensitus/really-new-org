@@ -42,7 +42,7 @@ class MicropostsController < ApplicationController
         unless micropost_params[:photo].nil?
           @micropost.photos.create!(picture: micropost_params[:photo], micropost_id: @micropost.id, user_id: current_user.id)
         end
-        format.html { redirect_to micropost_url(@micropost), notice: "Micropost was successfully created." }
+        format.html { redirect_to micropost_url(@micropost), notice: "post was successfully created." }
         format.json { render :show, status: :created, location: @micropost }
       else
         format.html { render :new, status: :unprocessable_entity }
