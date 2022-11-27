@@ -34,3 +34,5 @@
 /.idea
 
 /public/uploads/photo
+
+/vendor/bundle/*
